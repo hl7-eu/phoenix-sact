@@ -1,0 +1,41 @@
+@startuml
+hide empty members
+hide circle
+skinparam classAttributeIconSize 0
+
+class "Library\n(SACT Regimen Catalog)" as Library {
+  type = asset-collection
+  relatedArtifact[regimen] : composed-of
+}
+class "PlanDefinition\n(SACT Regimen)" as PD {
+  extension[indication]
+  extension[emetogenicRisk]
+  topic : therapy type
+  action[cycle]
+  action[monitoring]
+  action[doseModification]
+}
+class "action[cycle]" as Cyc {
+  timingTiming.repeat.period : cycle length
+  timingTiming.repeat.count : number of cycles
+  action : component administration
+}
+class "action[cycle].action" as Comp {
+  code : component role
+  timingRange : day(s) in cycle
+  relatedAction : sequencing
+  definitionCanonical
+}
+class "ActivityDefinition\n(SACT Administration)" as AD {
+  kind = MedicationRequest
+  productCodeableConcept : agent
+  dosage.doseAndRate.doseQuantity
+  dosage.route
+  dosage.timing.repeat.duration
+}
+
+Library "1" --> "1..*" PD : relatedArtifact.resource
+PD *-- "1..*" Cyc
+Cyc *-- "1..*" Comp
+Comp --> "1" AD : definitionCanonical
+@enduml

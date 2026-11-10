@@ -1,0 +1,73 @@
+@startuml
+hide empty members
+hide circle
+skinparam classAttributeIconSize 0
+
+class SACTRegimen {
+  identifier : Identifier [0..*]
+  name : string [1..1]
+  acronym : string [0..1]
+  synonym : string [0..*]
+  version : string [0..1]
+  status : code [1..1]
+  description : markdown [0..1]
+  therapyType : CodeableConcept [1..*]
+  emetogenicRisk : CodeableConcept [0..1]
+  evidence : RelatedArtifact [0..*]
+  jurisdiction : CodeableConcept [0..*]
+  lastReviewDate : date [0..1]
+  author : string [0..*]
+  notes : markdown [0..1]
+}
+class indication {
+  cancerCondition : CodeableConcept [1..1]
+  histology : CodeableConcept [0..*]
+  stage : CodeableConcept [0..*]
+  biomarker : CodeableConcept [0..*]
+  intent : CodeableConcept [1..1]
+  setting : CodeableConcept [0..1]
+  lineOfTherapy : positiveInt [0..1]
+  eligibilityNotes : string [0..1]
+}
+class cycle {
+  name : string [0..1]
+  cycleLength : Duration [1..1]
+  numberOfCycles : positiveInt [0..1]
+  maxNumberOfCycles : positiveInt [0..1]
+  untilProgression : boolean [0..1]
+}
+class component {
+  sequence : positiveInt [0..1]
+  role : CodeableConcept [1..1]
+  agent : CodeableConcept [1..1]
+  dose : Quantity [1..1]
+  maxDose : Quantity [0..1]
+  route : CodeableConcept [1..1]
+  administrationMethod : CodeableConcept [0..1]
+  administrationDays : positiveInt [1..*]
+  infusionDuration : Duration [0..1]
+  timingRelation : string [0..1]
+  diluent : string [0..1]
+  optional : boolean [0..1]
+  instructions : string [0..1]
+}
+class monitoring {
+  test : CodeableConcept [1..1]
+  timing : string [0..1]
+  threshold : string [0..1]
+}
+class doseModification {
+  trigger : CodeableConcept [1..1]
+  grade : string [0..1]
+  affectedAgent : CodeableConcept [0..*]
+  action : CodeableConcept [1..1]
+  reductionPercentage : decimal [0..1]
+  description : string [0..1]
+}
+
+SACTRegimen *-- "1..*" indication
+SACTRegimen *-- "1..*" cycle
+cycle *-- "1..*" component
+SACTRegimen *-- "0..*" monitoring
+SACTRegimen *-- "0..*" doseModification
+@enduml

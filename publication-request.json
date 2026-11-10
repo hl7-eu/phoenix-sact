@@ -1,0 +1,17 @@
+{
+  "package-id" : "hl7.eu.phoenix.sact",
+  "version" : "0.1.0",
+  "path" : "http://hl7.eu/fhir/phoenix/sact/0.1.0",
+  "ci-build" : "https://build.fhir.org/ig/hl7-eu/phoenix-sact",
+  "first" : true,
+  "desc" : "First draft of the European SACT Regimen Catalog FHIR IG",
+  "category" : "Cancer Management",
+  "introduction" : "The European SACT Regimen Catalog defines a shared, computable representation of Systemic Anti-Cancer Therapy regimen definitions to support consistent prescribing, safety checking, and secondary use of oncology treatment data across Europe.",
+  "registry-description" : "European SACT Regimen Catalog FHIR IG",
+  "registry-country" : "eu",
+  "registry-authority" : "PHOENIX",
+  "title" : "European SACT Regimen Catalog",
+  "mode" : "working",
+  "status" : "draft",
+  "sequence" : "STU 1"
+}

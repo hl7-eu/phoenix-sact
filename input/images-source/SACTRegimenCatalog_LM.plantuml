@@ -1,0 +1,19 @@
+@startuml
+hide empty members
+hide circle
+skinparam classAttributeIconSize 0
+
+class SACTRegimenCatalog {
+  identifier : Identifier [0..*]
+  title : string [1..1]
+  version : string [1..1]
+  status : code [1..1]
+  date : dateTime [1..1]
+  publisher : string [1..1]
+  jurisdiction : CodeableConcept [0..*]
+  description : markdown [0..1]
+  regimen : Reference(SACTRegimen) [1..*]
+}
+class SACTRegimen
+SACTRegimenCatalog --> "1..*" SACTRegimen : regimen
+@enduml

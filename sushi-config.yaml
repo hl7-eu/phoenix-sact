@@ -1,0 +1,133 @@
+id: hl7.eu.phoenix.sact
+canonical: http://hl7.eu/fhir/phoenix/sact
+name: EuSactRegimenCatalogIg
+title: European SACT Regimen Catalog
+description: This guide describes a European catalog of Systemic Anti-Cancer Therapy (SACT) regimens - a shared, computable representation of regimen definitions (agents, doses, cycles, supportive care, monitoring and dose modifications) - and its representation in HL7 FHIR.
+status: draft # draft | active | retired | unknown
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
+license: CC0-1.0
+jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#150 "Europe"
+publisher:
+  name: PHOENIX
+  url: http://hl7.eu
+copyright: >-
+  PHOENIX Copyright. Licensed under Common Creative License (CC0 1.0). Details at [Copyright](copyright.html).
+
+
+pages:
+  index.md:
+    title: Home
+  scope.md:
+    title: Scope and Content
+  background.md:
+    title: Background
+  references.md:
+    title: References
+  conceptualmodel.md:
+    title: Conceptual Model
+  glossary.md:
+    title: Glossary
+  usecases.md:
+    title: Use Cases
+  logicalmodels.md:
+    title: Logical Models
+  fhirmodelmap.md:
+    title: Model Map - FHIR
+  designchoices.md:
+    title: Design Choices
+  catalog-examples.md:
+    title: Regimen Catalog Examples
+  authors.md:
+    title: Authors and Contributors
+  knownissues.md:
+    title: Known Issues
+  downloads.md:
+    title: Downloads
+  dependencies.md:
+    title: Dependencies
+  copyright.md:
+    title: Copyright
+  crossversionanalysis.md:
+    title: Cross-version Analysis
+  menu.md:
+    title: Menu
+
+parameters:
+  apply-publisher: true
+  apply-version: true
+  apply-jurisdiction: true
+  apply-license: true
+  apply-copyright: true
+  path-expansion-params: ../resources/Parameters-exp-params.json
+
+groups:
+  LogicalModels:
+    name: Logical Models
+    description: Technology-neutral logical models describing a SACT regimen catalog and its regimen definitions.
+    resources:
+      - StructureDefinition/SACTRegimenCatalog
+      - StructureDefinition/SACTRegimen
+  Profiles:
+    name: FHIR Profiles
+    description: FHIR R4 profiles used to represent SACT regimen catalog content.
+    resources:
+      - StructureDefinition/library-sact-catalog-eu
+      - StructureDefinition/plandefinition-sact-regimen-eu
+      - StructureDefinition/activitydefinition-sact-administration-eu
+  Extensions:
+    name: Extensions
+    description: Extensions defined by this guide.
+    resources:
+      - StructureDefinition/sact-regimen-indication
+      - StructureDefinition/sact-emetogenic-risk
+  Terminology:
+    name: Terminology
+    description: Code systems and value sets defined by this guide.
+    resources:
+      - CodeSystem/sact-component-role-cs
+      - CodeSystem/sact-action-category-cs
+      - CodeSystem/sact-therapy-type-cs
+      - CodeSystem/sact-emetogenic-risk-cs
+      - CodeSystem/sact-dose-modification-action-cs
+      - ValueSet/sact-component-role-vs
+      - ValueSet/sact-action-category-vs
+      - ValueSet/sact-therapy-type-vs
+      - ValueSet/sact-emetogenic-risk-vs
+      - ValueSet/sact-dose-modification-action-vs
+      - ValueSet/sact-treatment-intent-vs
+      - ValueSet/sact-treatment-setting-vs
+      - ValueSet/sact-agent-vs
+      - ValueSet/sact-route-vs
+      - ValueSet/sact-dose-unit-vs
+      - ValueSet/sact-cancer-condition-vs
+  ExamplesCatalog:
+    name: "Examples: Catalog"
+    description: Illustrative SACT regimen catalog and regimen definitions. They are not clinical guidance.
+    resources:
+      - Bundle/sact-catalog-bundle-example
+      - Library/sact-catalog-example
+      - PlanDefinition/regimen-mfolfox6
+      - PlanDefinition/regimen-carboplatin-paclitaxel
+      - Binary/lm-mfolfox6
+  ExamplesAdministration:
+    name: "Examples: Component Administrations"
+    description: Illustrative dosing definitions of regimen components. They are not clinical guidance.
+    resources:
+      - ActivityDefinition/admin-oxaliplatin-85
+      - ActivityDefinition/admin-calcium-folinate-400
+      - ActivityDefinition/admin-fluorouracil-bolus-400
+      - ActivityDefinition/admin-fluorouracil-ci-2400
+      - ActivityDefinition/admin-paclitaxel-175
+      - ActivityDefinition/admin-carboplatin-auc5
+      - ActivityDefinition/admin-ondansetron-8
+      - ActivityDefinition/admin-dexamethasone-8
+      - ActivityDefinition/admin-dexamethasone-20
+      - ActivityDefinition/admin-chlorphenamine-10
+  Others:
+    name: Other resources
+    description: Other supporting resources.
+    resources:
+      - Parameters/exp-params

@@ -1,0 +1,29 @@
+@startuml
+hide empty members
+hide circle
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #F5F9FF
+  BorderColor #2B4C7E
+}
+
+class "SACT Regimen Catalog" as Catalog
+class "SACT Regimen" as Regimen
+class "Indication" as Indication
+class "Cycle" as Cycle
+class "Component" as Component
+class "Agent" as Agent
+class "Monitoring Requirement" as Monitoring
+class "Dose Modification Rule" as DoseMod
+class "Evidence" as Evidence
+
+Catalog "1" o-- "1..*" Regimen : includes
+Regimen "1" *-- "1..*" Indication : is indicated for
+Regimen "1" *-- "1..*" Cycle : is delivered in
+Cycle "1" *-- "1..*" Component : administers
+Component "*" --> "1" Agent : of
+Regimen "1" *-- "0..*" Monitoring : requires
+Regimen "1" *-- "0..*" DoseMod : is modified by
+DoseMod "*" ..> "0..*" Agent : affects
+Regimen "1" --> "0..*" Evidence : is supported by
+@enduml
