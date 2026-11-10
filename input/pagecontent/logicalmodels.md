@@ -4,7 +4,7 @@ This section describes the **SACT Regimen Catalog logical models**, a formal, te
   .uml-diagram svg { width: 100% !important; height: auto !important; }
 </style>
 
-### SACTRegimenCatalog
+### SACT Regimen Catalog
 
 Represents a regimen catalog: a curated, versioned and governed collection of regimen definitions.
 
@@ -17,7 +17,7 @@ Represents a regimen catalog: a curated, versioned and governed collection of re
 
 FHIR Logical Model: [StructureDefinition-SACTRegimenCatalog.html](StructureDefinition-SACTRegimenCatalog.html)
 
-### SACTRegimen
+### SACT Regimen
 
 Represents a SACT regimen definition: indications, cycles and their components (anticancer agents and supportive medications), emetogenic risk, monitoring requirements, dose modification rules and supporting evidence.
 
